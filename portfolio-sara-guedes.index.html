@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Guedes — Design de Marca & Produto</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --olive:    #3D4A2E;
+  --olive-dk: #2A3320;
+  --olive-md: #4F5E3A;
+  --olive-lt: #6B7A54;
+  --olive-bg: #F2F0E8;
+  --olive-tint:#E8E6DB;
+  --orange:   #D95F1A;
+  --orange-lt:#F07D3A;
+  --orange-bg:#FDF0E6;
+  --cream:    #FAF8F3;
+  --ink:      #1C1A14;
+  --ink-2:    #4A4840;
+  --ink-3:    #8C8A82;
+  --ink-4:    #C4C2BA;
+  --border:   rgba(61,74,46,0.12);
+  --border-md:rgba(61,74,46,0.22);
+  --border-str:rgba(61,74,46,0.35);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.65;font-weight:400;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 3.5rem;height:60px;
+  background:rgba(250,248,243,0.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;
+  color:var(--olive-dk);text-decoration:none;letter-spacing:-0.01em;
+}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:0.25rem;list-style:none;}
+.nav-links a{
+  font-size:0.78rem;font-weight:500;letter-spacing:0.04em;
+  color:var(--ink-2);text-decoration:none;
+  padding:0.4rem 0.8rem;border-radius:4px;
+  transition:background 0.15s,color 0.15s;
+}
+.nav-links a:hover{background:var(--olive-tint);color:var(--olive-dk);}
+.nav-cta{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.45rem 1rem;background:var(--olive);color:#fff;
+  border-radius:4px;text-decoration:none;
+  transition:background 0.15s;
+}
+.nav-cta:hover{background:var(--olive-md);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:6rem 3.5rem 4rem;
+  gap:5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  right:-120px;top:-80px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(61,74,46,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:0.75rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:1.75rem;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1.5px;background:var(--orange);}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.8rem,4.5vw,4.6rem);
+  font-weight:600;line-height:1.0;
+  letter-spacing:-0.03em;
+  color:var(--olive-dk);
+  margin-bottom:1.5rem;
+}
+.hero h1 em{font-style:italic;color:var(--orange);font-weight:300;}
+.hero-desc{
+  font-size:1rem;color:var(--ink-2);
+  max-width:480px;line-height:1.8;margin-bottom:2.5rem;
+}
+.hero-desc strong{color:var(--ink);font-weight:600;}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-fill{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.7rem 1.4rem;background:var(--olive);color:#fff;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.04em;
+  border-radius:5px;text-decoration:none;transition:background 0.15s;
+}
+.btn-fill:hover{background:var(--olive-md);}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.7rem 1.4rem;background:transparent;color:var(--ink);
+  font-size:0.8rem;font-weight:600;letter-spacing:0.04em;
+  border:1.5px solid var(--border-md);
+  border-radius:5px;text-decoration:none;transition:border-color 0.15s,background 0.15s;
+}
+.btn-outline:hover{background:var(--olive-tint);border-color:var(--olive-lt);}
+.hero-chips{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.hchip{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;font-weight:400;letter-spacing:0.06em;
+  padding:0.3rem 0.65rem;
+  border:1px solid var(--border-md);border-radius:3px;
+  color:var(--ink-3);background:white;
+}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:1rem;}
+.hero-stat-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:8px;padding:1.5rem 1.75rem;
+}
+.hero-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.hstat-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.3rem;}
+.hstat-val{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;color:var(--olive-dk);line-height:1;}
+.hstat-sub{font-size:0.72rem;color:var(--ink-3);margin-top:0.15rem;}
+.hstat-val.orange{color:var(--orange);}
+.hero-quote{
+  background:var(--olive-dk);
+  border-radius:8px;padding:1.5rem 1.75rem;
+  font-family:'Fraunces',serif;
+  font-size:1rem;font-style:italic;font-weight:300;
+  color:rgba(250,248,243,0.85);line-height:1.65;
+}
+.hero-quote span{display:block;margin-top:0.75rem;font-family:'Outfit',sans-serif;font-style:normal;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);}
+
+/* ── SECTIONS ── */
+.wrap{max-width:980px;margin:0 auto;padding:0 3.5rem;}
+section{padding:6rem 0;}
+.section-full{padding:6rem 3.5rem;}
+
+.eyebrow{
+  display:flex;align-items:center;gap:0.75rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:1.25rem;
+}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--orange);}
+h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:600;letter-spacing:-0.025em;line-height:1.1;
+  color:var(--olive-dk);margin-bottom:0.75rem;
+}
+h2 em{font-style:italic;font-weight:300;}
+.lead{font-size:0.95rem;color:var(--ink-2);max-width:560px;line-height:1.75;margin-bottom:3rem;}
+
+/* ── FILTER TABS ── */
+.filter-row{display:flex;gap:0.4rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.ftab{
+  font-size:0.75rem;font-weight:500;
+  padding:0.45rem 1rem;
+  border:1.5px solid var(--border-md);border-radius:100px;
+  color:var(--ink-2);background:white;cursor:pointer;
+  transition:all 0.15s;
+}
+.ftab:hover,.ftab.active{background:var(--olive);color:white;border-color:var(--olive);}
+
+/* ── PROJECT GRID ── */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.proj-card{
+  background:white;border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+  transition:transform 0.2s,box-shadow 0.2s;
+  cursor:pointer;
+}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(61,74,46,0.12);}
+.proj-card.featured{grid-column:span 2;}
+
+.proj-badge{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.28rem 0.65rem;border-radius:3px;font-weight:500;
+  margin-bottom:0.9rem;
+}
+.badge-brand{background:var(--orange);color:white;}
+.badge-product{background:var(--olive);color:white;}
+.badge-live{background:#16A34A;color:white;}
+.proj-body{padding:1.5rem 1.75rem;border-top:3px solid var(--olive-tint);}
+.proj-card.featured .proj-body{border-top-color:var(--orange);}
+.proj-meta-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;}
+.proj-num{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-4);letter-spacing:0.08em;}
+.proj-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-4);}
+.proj-type{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase;}
+.proj-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--olive-dk);margin-bottom:0.5rem;letter-spacing:-0.02em;}
+.proj-desc{font-size:0.82rem;color:var(--ink-2);line-height:1.65;margin-bottom:1.1rem;}
+.proj-tags{display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:1.1rem;}
+.ptag{font-size:0.65rem;font-weight:500;padding:0.2rem 0.55rem;border-radius:3px;border:1px solid var(--border-md);color:var(--ink-3);}
+.ptag.ol{border-color:rgba(61,74,46,0.3);color:var(--olive-md);}
+.ptag.or{border-color:rgba(217,95,26,0.3);color:var(--orange);}
+.proj-link{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
+  color:var(--olive-dk);text-decoration:none;
+  border-bottom:1.5px solid var(--olive-dk);padding-bottom:0.1rem;
+  transition:color 0.15s,border-color 0.15s;
+}
+.proj-link:hover{color:var(--orange);border-color:var(--orange);}
+
+/* ── CASE STUDY EXPANDED ── */
+.case-section{
+  background:var(--olive-dk);
+  padding:6rem 3.5rem;
+  position:relative;overflow:hidden;
+}
+.case-section::before{
+  content:'';position:absolute;right:-200px;top:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:rgba(217,95,26,0.06);pointer-events:none;
+}
+.case-inner{max-width:980px;margin:0 auto;}
+.case-section .eyebrow{color:var(--orange-lt);}
+.case-section .eyebrow::before{background:var(--orange-lt);}
+.case-section h2{color:white;}
+.case-section .lead{color:rgba(250,248,243,0.6);}
+
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;margin-bottom:2.5rem;}
+.case-cell{background:rgba(255,255,255,0.03);padding:2rem;}
+.case-cell-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:0.6rem;}
+.case-cell-text{font-size:0.85rem;color:rgba(250,248,243,0.7);line-height:1.7;}
+.case-cell-text strong{color:rgba(250,248,243,0.95);font-weight:600;}
+
+.process-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;
+  margin-bottom:2rem;
+}
+.pstep{background:rgba(255,255,255,0.03);padding:1.5rem;}
+.pstep-n{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--orange-lt);letter-spacing:0.1em;margin-bottom:0.5rem;}
+.pstep-name{font-size:0.85rem;font-weight:600;color:white;margin-bottom:0.35rem;}
+.pstep-desc{font-size:0.75rem;color:rgba(250,248,243,0.55);line-height:1.55;}
+
+.insights-row{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
+.insight{
+  display:flex;align-items:flex-start;gap:0.75rem;
+  font-size:0.83rem;color:rgba(250,248,243,0.7);line-height:1.6;
+}
+.ins-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:0.48rem;}
+
+.case-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.65rem 1.25rem;background:var(--orange);color:white;
+  border-radius:5px;text-decoration:none;transition:background 0.15s;
+}
+.case-cta:hover{background:var(--orange-lt);}
+.case-cta-ghost{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.65rem 1.25rem;background:transparent;color:rgba(250,248,243,0.8);
+  border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:5px;text-decoration:none;transition:border-color 0.15s;margin-left:0.75rem;
+}
+.case-cta-ghost:hover{border-color:rgba(255,255,255,0.5);}
+
+/* ── SOBRE ── */
+.sobre-bg{background:var(--olive-tint);}
+.sobre-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:5rem;align-items:start;}
+.sobre-text{font-size:0.92rem;color:var(--ink-2);line-height:1.85;}
+.sobre-text p+p{margin-top:1rem;}
+.sobre-text strong{color:var(--ink);font-weight:600;}
+.sobre-callout{
+  margin-top:1.75rem;
+  background:var(--olive-dk);border-radius:8px;
+  padding:1.25rem 1.5rem;
+  font-size:0.83rem;color:rgba(250,248,243,0.8);line-height:1.65;
+}
+.sobre-callout strong{color:var(--orange-lt);}
+.exp-list{display:flex;flex-direction:column;}
+.exp-item{padding:0.9rem 0;border-bottom:1px solid var(--border);}
+.exp-item:first-child{border-top:1px solid var(--border);}
+.exp-yr{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--ink-3);margin-bottom:0.2rem;}
+.exp-role{font-size:0.85rem;font-weight:600;color:var(--olive-dk);margin-bottom:0.1rem;}
+.exp-co{font-size:0.78rem;color:var(--ink-2);}
+.ebadge{display:inline-block;font-size:0.6rem;font-weight:600;padding:0.12rem 0.45rem;border-radius:100px;margin-left:0.4rem;vertical-align:middle;}
+.eb-on{background:rgba(22,163,74,0.12);color:#166534;}
+.eb-ok{background:rgba(61,74,46,0.1);color:var(--olive-md);}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.sk-card{background:white;border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.75rem;}
+.sk-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.sk-cat{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.2rem;}
+.sk-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--olive-dk);margin-bottom:0.8rem;}
+.sk-pills{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.sk-pill{font-size:0.68rem;font-weight:500;padding:0.25rem 0.6rem;background:var(--olive-tint);border:1px solid var(--border);border-radius:3px;color:var(--ink-2);}
+
+/* ── CONTACT ── */
+.contact-bg{background:var(--olive-dk);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-bg .eyebrow{color:var(--orange-lt);}
+.contact-bg .eyebrow::before{background:var(--orange-lt);}
+.contact-bg h2{color:white;}
+.contact-note{font-size:0.9rem;color:rgba(250,248,243,0.5);line-height:1.75;margin-top:1rem;}
+.contact-note strong{color:rgba(250,248,243,0.85);font-weight:600;}
+.clinks{display:flex;flex-direction:column;}
+.clink{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-decoration:none;transition:opacity 0.15s;
+}
+.clink:first-child{border-top:1px solid rgba(255,255,255,0.08);}
+.clink:hover{opacity:0.65;}
+.clink-lbl{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.3);margin-bottom:0.2rem;}
+.clink-val{font-size:0.88rem;color:white;}
+.carrow{color:rgba(250,248,243,0.3);font-size:0.9rem;}
+
+footer{
+  background:var(--olive-dk);border-top:1px solid rgba(255,255,255,0.06);
+  padding:1.25rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;
+  color:rgba(250,248,243,0.25);
+}
+
+/* ── ANIM ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:fadeUp 0.55s ease 0.05s both;}
+.hero h1{animation:fadeUp 0.65s ease 0.15s both;}
+.hero-desc{animation:fadeUp 0.65s ease 0.25s both;}
+.hero-btns{animation:fadeUp 0.65s ease 0.35s both;}
+.hero-chips{animation:fadeUp 0.65s ease 0.42s both;}
+.hero-right{animation:fadeUp 0.75s ease 0.5s both;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:820px){
+  nav{padding:0 1.25rem;}.nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:5rem 1.25rem 3rem;gap:2.5rem;}
+  .wrap{padding:0 1.25rem;}
+  .section-full{padding:4rem 1.25rem;}
+  .case-section{padding:4rem 1.25rem;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card.featured{grid-column:span 1;}
+  .case-grid,.process-strip{grid-template-columns:1fr;}
+  .sobre-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:0.4rem;text-align:center;padding:1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Sara<span>.</span>Guedes</a>
+  <ul class="nav-links">
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#case">Case Transdesk</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Falar comigo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div>
+    <p class="hero-eyebrow">Design de Marca & Produto · Disponível</p>
+    <h1>Marcas que<br>falam. Produtos<br>que <em>funcionam.</em></h1>
+    <p class="hero-desc">Olá, sou Sara — designer com <strong>6 anos de experiência</strong> em identidade visual e produto digital. Trabalho na interseção entre estratégia de marca, UX e visão de negócio para criar experiências que geram resultado real.</p>
+    <div class="hero-btns">
+      <a href="#projetos" class="btn-fill">Ver projetos →</a>
+      <a href="#contato" class="btn-outline">Entre em contato</a>
+    </div>
+    <div class="hero-chips">
+      <span class="hchip">Branding</span>
+      <span class="hchip">UX/UI</span>
+      <span class="hchip">Figma</span>
+      <span class="hchip">Estratégia de Marca</span>
+      <span class="hchip">Adobe CC</span>
+      <span class="hchip">Product Design</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="hero-stat-row">
+        <div>
+          <p class="hstat-label">Experiência</p>
+          <p class="hstat-val">6+</p>
+          <p class="hstat-sub">anos em design</p>
+        </div>
+        <div>
+          <p class="hstat-label">Atuação</p>
+          <p class="hstat-val" style="font-size:1rem;line-height:1.2;">Marca<br>& Produto</p>
+        </div>
+        <div>
+          <p class="hstat-label">Disponível</p>
+          <p class="hstat-val" style="font-size:1rem;line-height:1.2;">Nível<br>Pleno</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-quote">
+      "Design não é como uma coisa parece — é como ela funciona para quem precisa dela."
+      <span>Visão de produto · Sara Guedes</span>
+    </div>
+    <div class="hero-stat-card" style="padding:1.25rem 1.75rem;">
+      <p class="hstat-label" style="margin-bottom:0.65rem;">Reconhecido por</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span class="hchip" style="color:var(--olive-md);border-color:rgba(61,74,46,0.25);">Estúdio Samambae</span>
+        <span class="hchip" style="color:var(--olive-md);border-color:rgba(61,74,46,0.25);">ECOA PUC-Rio</span>
+        <span class="hchip" style="color:var(--olive-md);border-color:rgba(61,74,46,0.25);">Grupo Unus</span>
+        <span class="hchip" style="color:var(--olive-md);border-color:rgba(61,74,46,0.25);">Pref. Mata de São João</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="wrap">
+    <p class="eyebrow">Trabalhos selecionados</p>
+    <h2>Marca & <em>Produto Digital</em></h2>
+    <p class="lead">Projetos reais de branding e UX/UI — cada um com um problema diferente, um público específico e decisões de design justificadas.</p>
+
+    <div class="filter-row">
+      <button class="ftab active" onclick="filterProj('all',this)">Todos</button>
+      <button class="ftab" onclick="filterProj('brand',this)">Identidade Visual</button>
+      <button class="ftab" onclick="filterProj('product',this)">Produto Digital</button>
+      <button class="ftab" onclick="filterProj('campaign',this)">Campanha</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <!-- TRANSDESK UNIFICADO - FEATURED -->
+      <div class="proj-card featured" data-cat="brand product">
+        <div class="proj-body">
+          <span class="proj-badge badge-brand">Branding</span>
+          <span class="proj-badge badge-live" style="margin-left:0.4rem;">● Site ao vivo</span>
+          <div class="proj-meta-row" style="margin-top:0.5rem;">
+            <span class="proj-num">01</span><span class="proj-dot"></span>
+            <span class="proj-type">Rebranding Estratégico · Direção Criativa · UX/UI · Plataforma Web</span>
+          </div>
+          <h3 class="proj-title">Transdesk — Rebranding & Plataforma</h3>
+          <p class="proj-desc">Projeto completo de marca e produto digital para a Transdesk — plataforma de seguros, consórcios e pneus para caminhoneiros com +40 mil clientes e +20 franquias no Brasil. Atuei em duas frentes: <strong>rebranding estratégico</strong> (direção criativa, estratégia de marca, identidade visual e verbal — reposicionando a empresa de intermediário a parceiro consultivo essencial, com o conceito "Conectar para otimizar") e <strong>produto digital</strong> (design UX/UI completo, wireframes HF no Figma e handoff para desenvolvimento em Next.js).</p>
+          <div class="proj-tags" style="margin-top:0.85rem;">
+            <span class="ptag ol">Direção Criativa</span>
+            <span class="ptag ol">Estratégia de Marca</span>
+            <span class="ptag ol">Identidade Visual</span>
+            <span class="ptag or">Identidade Verbal</span>
+            <span class="ptag">UX/UI</span>
+            <span class="ptag">Figma</span>
+            <span class="ptag">Next.js</span>
+            <span class="ptag or">+40k clientes</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;margin-top:1.1rem;flex-wrap:wrap;">
+            <a href="https://www.behance.net/gallery/230998283/Transdesk-Rebranding" target="_blank" class="proj-link">Ver rebranding no Behance →</a>
+            <a href="https://www.transdesk.com.br" target="_blank" class="proj-link" style="color:var(--olive-md);border-color:var(--olive-md);">Ver site ao vivo →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ELEMENTAR -->
+      <div class="proj-card" data-cat="brand">
+        <div class="proj-body">
+          <span class="proj-badge badge-brand">Branding</span>
+          <div class="proj-meta-row">
+            <span class="proj-num">02</span><span class="proj-dot"></span>
+            <span class="proj-type">Identidade Visual · Estúdio Samambae</span>
+          </div>
+          <h3 class="proj-title">Elementar</h3>
+          <p class="proj-desc">Empresa especializada em perícia técnica de acidentes — 15 anos de mercado, atendendo seguradoras, cooperativas e advogados. O desafio era criar uma identidade que comunicasse precisão, imparcialidade e autoridade técnica sem soar fria ou distante.</p>
+          <div class="proj-tags">
+            <span class="ptag ol">Identidade Visual</span>
+            <span class="ptag">Logo Design</span>
+            <span class="ptag">Illustrator</span>
+            <span class="ptag">Perícia Técnica</span>
+          </div>
+          <a href="https://www.behance.net/gallery/217300099/Elementar-Identidade-Visual" target="_blank" class="proj-link">Ver no Behance →</a>
+        </div>
+      </div>
+
+      <!-- ALL7 EVENTOS -->
+      <div class="proj-card" data-cat="brand">
+        <div class="proj-body">
+          <span class="proj-badge badge-brand">Branding</span>
+          <div class="proj-meta-row">
+            <span class="proj-num">03</span><span class="proj-dot"></span>
+            <span class="proj-type">Identidade Visual · Corporativo</span>
+          </div>
+          <h3 class="proj-title">All7 Eventos</h3>
+          <p class="proj-desc">Identidade visual para empresa de gestão de eventos corporativos. O conceito partiu das ideias de prontidão, organização e método — traduzindo visualmente um posicionamento profissional, estratégico e confiável em todos os pontos de contato da marca.</p>
+          <div class="proj-tags">
+            <span class="ptag ol">Identidade Visual</span>
+            <span class="ptag">Eventos Corporativos</span>
+            <span class="ptag or">Branding</span>
+            <span class="ptag">Estúdio Samambae</span>
+          </div>
+          <a href="https://www.behance.net/gallery/243912271/All7-Eventos-Identidade-Visual" target="_blank" class="proj-link">Ver no Behance →</a>
+        </div>
+      </div>
+
+      <!-- MERCADO MUNICIPAL -->
+      <div class="proj-card" data-cat="brand">
+        <div class="proj-body">
+          <span class="proj-badge badge-brand">Branding</span>
+          <div class="proj-meta-row">
+            <span class="proj-num">04</span><span class="proj-dot"></span>
+            <span class="proj-type">Identidade Visual · Setor Público</span>
+          </div>
+          <h3 class="proj-title">Mercado Municipal — Mata de São João</h3>
+          <p class="proj-desc">Identidade visual para o Mercado Municipal de Mata de São João (BA), desenvolvida durante minha atuação na Prefeitura. O mercado reúne agricultores familiares, artesãos e restaurantes regionais — a marca precisava celebrar cultura local, tradição e comunidade.</p>
+          <div class="proj-tags">
+            <span class="ptag ol">Identidade Visual</span>
+            <span class="ptag">Setor Público</span>
+            <span class="ptag">Cultura Local</span>
+            <span class="ptag">Bahia</span>
+          </div>
+          <a href="https://www.behance.net/gallery/201871949/Mercado-Municipal-de-Mata-de-Sao-JoaoBA-ID" target="_blank" class="proj-link">Ver no Behance →</a>
+        </div>
+      </div>
+
+      <!-- MESA ESTRATÉGIAS DIGITAIS -->
+      <div class="proj-card" data-cat="brand">
+        <div class="proj-body">
+          <span class="proj-badge badge-brand">Branding</span>
+          <div class="proj-meta-row">
+            <span class="proj-num">05</span><span class="proj-dot"></span>
+            <span class="proj-type">Identidade Visual · Marketing Digital · Grupo Unus</span>
+          </div>
+          <h3 class="proj-title">Mesa Estratégias Digitais</h3>
+          <p class="proj-desc">Identidade visual para a Mesa Estratégias Digitais, braço de marketing digital do Grupo Unus. O projeto envolveu a criação de uma marca com posicionamento estratégico no mercado de marketing digital — sistema visual completo com logo, paleta, tipografia e aplicações.</p>
+          <div class="proj-tags">
+            <span class="ptag ol">Identidade Visual</span>
+            <span class="ptag">Marketing Digital</span>
+            <span class="ptag or">Grupo Unus</span>
+            <span class="ptag">Logo Design</span>
+            <span class="ptag">Adobe Illustrator</span>
+          </div>
+          <a href="https://www.behance.net/gallery/190443209/Mesa-Estratgias-Digitais-Identidade-Visual" target="_blank" class="proj-link">Ver no Behance →</a>
+        </div>
+      </div>
+
+      <!-- SETEMBRO AMARELO -->
+      <div class="proj-card featured" data-cat="campaign">
+        <div class="proj-body" style="border-top-color:var(--orange);">
+          <span class="proj-badge" style="background:var(--orange);color:white;">Campanha</span>
+          <div class="proj-meta-row" style="margin-top:0.5rem;">
+            <span class="proj-num">06</span><span class="proj-dot"></span>
+            <span class="proj-type">Campanha de Endomarketing · Identidade Visual · Design</span>
+          </div>
+          <h3 class="proj-title">Setembro Amarelo — Grupo Unus</h3>
+          <p class="proj-desc">Campanha interna de conscientização sobre saúde mental desenvolvida para o Grupo Unus. Fui responsável pela <strong>identidade visual e design</strong> de toda a campanha — criando um sistema visual coeso que equilibra seriedade e acolhimento, aplicado em peças digitais, motion e materiais de endomarketing. A campanha alcançou <strong>1.3k visualizações</strong> no Behance, sendo um dos projetos de maior repercussão do portfólio.</p>
+          <div class="proj-tags" style="margin-top:0.85rem;">
+            <span class="ptag or">Identidade Visual</span>
+            <span class="ptag ol">Design</span>
+            <span class="ptag">Endomarketing</span>
+            <span class="ptag">Sistema Visual</span>
+            <span class="ptag">Grupo Unus</span>
+            <span class="ptag">Adobe Illustrator</span>
+          </div>
+          <div style="margin-top:1.1rem;">
+            <a href="https://www.behance.net/gallery/207519725/Setembro-Amarelo-Campanha-Grupo-Unus" target="_blank" class="proj-link">Ver no Behance →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY — TRANSDESK REBRANDING -->
+<section class="case-section" id="case">
+  <div class="case-inner">
+    <p class="eyebrow">Case em destaque</p>
+    <h2>Transdesk — <em>Rebranding</em></h2>
+    <p class="lead">O projeto mais completo do portfólio: estratégia de marca, direção criativa e identidade verbal para reposicionar uma empresa de 17 anos no setor de transportes.</p>
+
+    <div class="case-grid">
+      <div class="case-cell">
+        <p class="case-cell-label">O problema</p>
+        <p class="case-cell-text">A marca antiga era <strong>funcional mas genérica</strong> — soava técnica e distante. No setor de transportes focado em transação, a Transdesk corria o risco de ser percebida como mais um intermediário, sem diferenciar seu verdadeiro papel consultivo.</p>
+      </div>
+      <div class="case-cell">
+        <p class="case-cell-label">A solução</p>
+        <p class="case-cell-text">Reposicionamento estratégico: de conector de produtos a <strong>parceiro consultivo essencial</strong>. Manchete: "Conectar para otimizar." Tom de voz: respeitoso, especialista e compreensivo — humano, não robótico.</p>
+      </div>
+      <div class="case-cell">
+        <p class="case-cell-label">Meu papel</p>
+        <p class="case-cell-text"><strong>Direção criativa + estratégia de marca.</strong> Liderança do processo de rebranding completo: estratégia, identidade visual, identidade verbal e direcionamento do time.</p>
+      </div>
+      <div class="case-cell">
+        <p class="case-cell-label">Time & entrega</p>
+        <p class="case-cell-text">Liderança de equipe multidisciplinar com <strong>3 designers, 2 redatores e 1 editor de vídeo</strong>. Entrega completa: <strong>manual de marca, sistema visual e identidade verbal</strong> para aplicação em todos os pontos de contato.</p>
+      </div>
+    </div>
+
+    <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:1rem;">Processo</p>
+    <div class="process-strip">
+      <div class="pstep">
+        <p class="pstep-n">01 · Diagnóstico</p>
+        <p class="pstep-name">Pesquisa estratégica</p>
+        <p class="pstep-desc">Análise da marca anterior, concorrentes, público caminhoneiro e posicionamento desejado.</p>
+      </div>
+      <div class="pstep">
+        <p class="pstep-n">02 · Estratégia</p>
+        <p class="pstep-name">Arquétipos & tom</p>
+        <p class="pstep-desc">Definição dos arquétipos Sábio + Prestativo e dos 4 pilares: Ética, Autoridade, Compreensão e Compromisso.</p>
+      </div>
+      <div class="pstep">
+        <p class="pstep-n">03 · Criação</p>
+        <p class="pstep-name">Sistema visual</p>
+        <p class="pstep-desc">Identidade visual completa — logo, paleta, tipografia, linguagem gráfica e aplicações da marca.</p>
+      </div>
+      <div class="pstep">
+        <p class="pstep-n">04 · Entrega</p>
+        <p class="pstep-name">Manual de marca</p>
+        <p class="pstep-desc">Brandbook completo com diretrizes visuais e verbais para aplicação consistente em todos os canais.</p>
+      </div>
+    </div>
+
+    <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:1rem;">Decisões de design</p>
+    <div class="insights-row">
+      <div class="insight"><span class="ins-dot"></span>A escolha dos arquétipos Sábio + Prestativo foi deliberada — o caminhoneiro não quer um vendedor, quer um especialista de confiança que entende sua realidade na estrada.</div>
+      <div class="insight"><span class="ins-dot"></span>O tom "humano, não robótico" foi a decisão mais estratégica: em um setor técnico, comunicação acessível é diferenciação real.</div>
+      <div class="insight"><span class="ins-dot"></span>Imagens geradas com IA foram usadas a partir dos direcionais estratégicos da marca — o que exigiu rigor na definição do visual antes da execução.</div>
+    </div>
+
+    <div>
+      <a href="https://www.behance.net/gallery/230998283/Transdesk-Rebranding" target="_blank" class="case-cta">Ver case completo →</a>
+      <a href="https://www.transdesk.com.br" target="_blank" class="case-cta-ghost">Ver site ao vivo</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre-bg" id="sobre">
+  <div class="wrap">
+    <p class="eyebrow">Sobre mim</p>
+    <div class="sobre-grid">
+      <div>
+        <h2>Designer com visão<br>de <em>produto e marca</em></h2>
+        <div class="sobre-text" style="margin-top:1.75rem;">
+          <p>Sou Sara Guedes, designer natural de <strong>Mata de São João (BA)</strong>, atualmente em Cascavel (PR). Com passagem por <strong>governo, startup de tecnologia (ECOA PUC-Rio) e empresa privada</strong>, essa diversidade me ensinou a adaptar o processo de design à realidade de cada projeto e cliente.</p>
+          <p>Fui subcoordenadora de design na Prefeitura de Mata de São João, onde criei identidades visuais institucionais. Passei pela ECOA PUC-Rio trabalhando com produtos que combinavam <strong>blockchain, IoT e dados</strong>. Hoje, no Grupo Unus, lidero projetos estratégicos e participo de decisões de produto.</p>
+          <p>Com <strong>6 anos de experiência</strong>, tenho pós-graduação em Gestão de Produto e estou cursando Análise de Dados e Design Thinking — o que me permite pensar no design como ferramenta de negócio, não apenas como entrega estética.</p>
+        </div>
+        <div class="sobre-callout">
+          <strong>Diferencial:</strong> Atuo tanto em identidade visual (estratégia de marca, branding) quanto em produto digital (UX/UI, wireframe, handoff).
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="https://behance.net/saraguedesa" target="_blank" class="btn-fill">Behance →</a>
+          <a href="https://linkedin.com/in/saraguedesa" target="_blank" class="btn-outline">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.75rem;">Experiência</p>
+        <div class="exp-list">
+          <div class="exp-item">
+            <p class="exp-yr">2025 · Atual</p>
+            <p class="exp-role">Designer Gráfico Sênior <span class="ebadge eb-on">atual</span></p>
+            <p class="exp-co">Grupo Unus</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2023 – 2025</p>
+            <p class="exp-role">Designer Gráfico Pleno</p>
+            <p class="exp-co">Grupo Unus</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2022 – 2023</p>
+            <p class="exp-role">Subcoordenadora de Design</p>
+            <p class="exp-co">Prefeitura de Mata de São João</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2021 – 2022</p>
+            <p class="exp-role">Social Media Designer</p>
+            <p class="exp-co">Solsilicio Energia Solar</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2021 – 2022</p>
+            <p class="exp-role">Estagiária UX/UI Design</p>
+            <p class="exp-co">ECOA PUC-Rio</p>
+          </div>
+        </div>
+        <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin:1.5rem 0 0.75rem;">Formação</p>
+        <div class="exp-list">
+          <div class="exp-item">
+            <p class="exp-yr">2025 · Em andamento</p>
+            <p class="exp-role">Pós — Design Thinking e Inovação <span class="ebadge eb-on">cursando</span></p>
+            <p class="exp-co">Faculdade Líbano</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2025 · Em andamento</p>
+            <p class="exp-role">Pós — Análise de Dados <span class="ebadge eb-on">cursando</span></p>
+            <p class="exp-co">Faculdade Líbano</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2023 – 2025</p>
+            <p class="exp-role">Pós — Gestão de Produto <span class="ebadge eb-ok">concluída</span></p>
+            <p class="exp-co">BBI</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2020 – 2021</p>
+            <p class="exp-role">Tecnologia em Design Gráfico</p>
+            <p class="exp-co">UNIFACS</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-yr">2018 – 2023</p>
+            <p class="exp-role">Bacharelado em Ciência, Tecnologia e Inovação</p>
+            <p class="exp-co">UFBA (pausado)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Competências</p>
+    <h2>O que <em>trago</em> para cada projeto</h2>
+    <p class="lead" style="margin-bottom:2rem;">De estratégia de marca à entrega de produto digital.</p>
+    <div class="skills-grid">
+      <div class="sk-card">
+        <div class="sk-icon" style="background:rgba(61,74,46,0.1);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L4 5V13L9 16L14 13V5L9 2Z" stroke="#3D4A2E" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 2V16M4 5L14 13M14 5L4 13" stroke="#3D4A2E" stroke-width="1" stroke-opacity="0.4"/></svg>
+        </div>
+        <p class="sk-cat">Marca</p>
+        <p class="sk-name">Branding & ID Visual</p>
+        <div class="sk-pills">
+          <span class="sk-pill">Estratégia de Marca</span>
+          <span class="sk-pill">Logo Design</span>
+          <span class="sk-pill">Identidade Visual</span>
+          <span class="sk-pill">Brandbook</span>
+          <span class="sk-pill">Identidade Verbal</span>
+          <span class="sk-pill">Adobe Illustrator</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-icon" style="background:rgba(217,95,26,0.1);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="10" rx="2" stroke="#D95F1A" stroke-width="1.4"/><path d="M2 7H16M6 7V13" stroke="#D95F1A" stroke-width="1.2" stroke-opacity="0.6"/></svg>
+        </div>
+        <p class="sk-cat">Produto</p>
+        <p class="sk-name">UX/UI Design</p>
+        <div class="sk-pills">
+          <span class="sk-pill">Figma</span>
+          <span class="sk-pill">Wireframing</span>
+          <span class="sk-pill">Prototipagem</span>
+          <span class="sk-pill">UX Research</span>
+          <span class="sk-pill">Handoff</span>
+          <span class="sk-pill">Wix</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-icon" style="background:rgba(61,74,46,0.08);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#3D4A2E" stroke-width="1.4"/><path d="M6 9L8 11L12 7" stroke="#D95F1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="sk-cat">Gestão</p>
+        <p class="sk-name">Produto & Processos</p>
+        <div class="sk-pills">
+          <span class="sk-pill">Gestão de Produto</span>
+          <span class="sk-pill">Roadmap</span>
+          <span class="sk-pill">Design Thinking</span>
+          <span class="sk-pill">Scrum / Kanban</span>
+          <span class="sk-pill">Notion / Miro</span>
+          <span class="sk-pill">Análise de Dados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact-bg" id="contato">
+  <div class="wrap">
+    <p class="eyebrow">Contato</p>
+    <div class="contact-grid">
+      <div>
+        <h2 style="color:white;">Tem um projeto?<br><em>Vamos conversar.</em></h2>
+        <p class="contact-note" style="margin-top:1.25rem;">Aberta a oportunidades como <strong>UX/UI Designer, Product Designer ou Designer de Marca</strong> — nível pleno, <strong>100% remoto</strong>. Também disponível para projetos freelance de identidade visual e produto digital.</p>
+        <p class="contact-note" style="margin-top:0.75rem;">Respondo rápido por email ou LinkedIn.</p>
+        <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="https://behance.net/saraguedesa" target="_blank" class="case-cta">Ver Behance →</a>
+        </div>
+      </div>
+      <div class="clinks">
+        <div class="clink" style="cursor:default;">
+          <div><p class="clink-lbl">Email</p><p class="clink-val">contatosaraguedes@gmail.com</p></div>
+          <button onclick="navigator.clipboard.writeText('contatosaraguedes@gmail.com').then(()=>{this.textContent='✓';setTimeout(()=>{this.textContent='copiar'},1500)})" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:0.65rem;font-weight:500;padding:0.3rem 0.65rem;border-radius:4px;cursor:pointer;letter-spacing:0.06em;font-family:inherit;transition:all 0.15s;">copiar</button>
+        </div>
+        <a href="https://linkedin.com/in/saraguedesa" target="_blank" class="clink">
+          <div><p class="clink-lbl">LinkedIn</p><p class="clink-val">linkedin.com/in/saraguedesa</p></div>
+          <span class="carrow">→</span>
+        </a>
+        <a href="https://behance.net/saraguedesa" target="_blank" class="clink">
+          <div><p class="clink-lbl">Behance</p><p class="clink-val">behance.net/saraguedesa</p></div>
+          <span class="carrow">→</span>
+        </a>
+        <a href="tel:+5571991150863" class="clink">
+          <div><p class="clink-lbl">Telefone</p><p class="clink-val">+55 71 9 9115-0863</p></div>
+          <span class="carrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Sara Guedes Anunciação — Design de Marca & Produto</span>
+  <span>Cascavel, PR · Disponível somente para trabalho remoto</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function filterProj(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(card => {
+    const cats = card.dataset.cat || '';
+    const match = cat === 'all' || cats.split(' ').includes(cat);
+    card.style.display = match ? '' : 'none
